@@ -1,0 +1,22 @@
+form {
+    margin: 10px;
+}
+
+.btn-default {
+    color: #129cec;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active:focus{
+    color: #337ab7;
+}
+
+.input-group-btn {
+    vertical-align: top;
+}
+
+#error-panel,
+#no-results {
+    display: none;
+}
