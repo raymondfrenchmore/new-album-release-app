@@ -4,57 +4,6 @@
     justify-content: center;
 }
 
-.artistDetails > article {
-    width: 300px;
-    height: 300px;
-    white-space: nowrap;  
-    text-align: center; 
-    margin: 10px;
-    background-color: black;
-    position: relative;
-    transition: transform .2s;
-}
-
-.artistDetails > article:hover {
-    -ms-transform: scale(1.1); /* IE 9 */
-    -webkit-transform: scale(1.1); /* Safari 3-8 */
-    transform: scale(1.1); 
-}
-
-.artistDetails > article > span.helper {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
-.artistDetails > article > a > img {
-    min-width: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-.artistDetails > article > div.textArea {
-    background-color: black;
-    opacity: 0.7;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    padding: 5px;    
-}
-
-.artistDetails > article > div.textArea > p {
-    margin: 0;
-    font-size: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden;    
-}
-
-
-.artistDetails > article > div.textArea > p.releaseTitle {
-    font-style: italic;
-}
-
 a#previous,
 a#next {
     color: #129cec;
@@ -65,7 +14,7 @@ a#next:hover {
     color: #337ab7;
 }
 
-/*#release-pager {
+/*#results-pager {
     display: none;
 }*/
 
