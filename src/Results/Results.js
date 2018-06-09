@@ -6,11 +6,15 @@ import './Results.css';
 class Results extends Component {
   render() {
     return (
-        <div>          
-          <Release />
+        <div>
+          <div className="resultsContainer">          
+            <Release />
+            <Release />
+            <Release />
+          </div>
           <ul id="results-pager" className="pager">
             <li><a id="previous" href="#">Previous</a></li>
-            <li><span id="page-indicator">1 of 3</span></li>
+            <li><span id="page-indicator"></span></li>
             <li><a id="next" href="#">Next</a></li>
           </ul>
       </div>
