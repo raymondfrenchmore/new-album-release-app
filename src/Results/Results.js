@@ -7,7 +7,8 @@ class Results extends Component {
   render() {
     return (
         <div>
-          <div className="resultsContainer">          
+          <div className="resultsContainer"> 
+{/*             TODO: Replace hardcoded releases with a map function that receives the releases through props and maps them to the <Release /> component  */}        
             <Release />
             <Release />
             <Release />
