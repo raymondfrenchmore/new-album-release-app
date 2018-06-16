@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo_black.png';
 import './App.css';
-
 import Search from './Search/Search';
 import Results from './Results/Results';
 
@@ -14,7 +13,7 @@ class App extends Component {
   } 
 
   getNewReleases = (artistName) => {
-    console.log("getNewReleases called");
+    // console.log("getNewReleases called");
     fetch(`https://api.discogs.com/database/search?type=release&year=${new Date().getFullYear()}&artist=${artistName}&per_page=3&page=1`, {
       method: "GET",
       headers:
@@ -23,9 +22,14 @@ class App extends Component {
         }
     })
     .then(response => response.json())
-    // .then(json => console.log(json.results))
+/*     .then(json => {
+      console.log(json.results);
+      return json;
+     }) */
     .then(json => this.setState((prevState, props) => { 
-      releases: json.results
+     return {
+       releases: json.results
+     }
     }));
   }
 
@@ -36,8 +40,7 @@ class App extends Component {
             <div className="jumbotron">
                 <h1>New Releases</h1>          
                 <Search getNewReleases={this.getNewReleases} />
-   {/*              TODO: Pass this.state.releases to the results component and render it */}
-                <Results />
+                <Results releases={this.state.releases} />
             </div>
             <div id="footer">
                 <p>Data provided by <a href="https://www.discogs.com" target="_blank" rel="noopener noreferrer"><img src={logo} alt="logo" /></a></p>

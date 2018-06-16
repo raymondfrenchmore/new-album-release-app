@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Release from '../Release/Release';
 import './Results.css';
 
@@ -8,10 +7,9 @@ class Results extends Component {
     return (
         <div>
           <div className="resultsContainer"> 
-{/*             TODO: Replace hardcoded releases with a map function that receives the releases through props and maps them to the <Release /> component  */}        
-            <Release />
-            <Release />
-            <Release />
+            {this.props.releases.map((release, index) =>
+            <Release key={index} id={release.id} />
+            )}
           </div>
           <ul id="results-pager" className="pager">
             <li><a id="previous" href="#">Previous</a></li>

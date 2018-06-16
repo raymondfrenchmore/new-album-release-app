@@ -1,18 +1,73 @@
 import React, { Component } from 'react';
-
-import Results from '../Results/Results';
 import './Release.css';
 
 class Release extends Component {
-  render() {
-    return (
-        <div>
+    constructor(props) {
+        super(props);
+        this.state = { 
+            release: null
+        };
+    }
 
-{/*           TODO: Replace hardcoded values with real values coming from props */}
-            <article><span className="helper"></span><a href="https://www.discogs.com/David-Bowie-Low/release/11638558" target="_blank"><img src="https://img.discogs.com/9sY2P2DoVBWIWAOQlPJRs6AFm1M=/fit-in/600x535/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-11638558-1519845059-7935.jpeg.jpg" /></a><div className="textArea"><p className="artistName">David Bowie</p><p className="releaseTitle">Low</p></div></article>
-        </div>
-    );
-  }
+    componentDidMount() {
+        console.log("Entering componentDidMount");
+
+        fetch(
+            `https://api.discogs.com/releases/${this.props.id}?USD`, 
+            {
+                method: "GET",
+                headers:
+                    {
+                      "Authorization": "Discogs token=RbvwWnsEnRskVDRIDcrTukupSbgovHnfxIbFPEgZ"
+                    }
+            }
+        )
+        .then(response => response.json())
+        .then(json => this.setState(() => {
+            console.log("Fetch succeeded");
+            console.log(json);
+            return {
+                release: json
+            };
+        }))
+        .catch((error) => {
+            console.log(error);
+            this.setState((prevState) => {
+                return {
+                    error: true
+                };
+            })
+        });
+
+        console.log("Exiting componentDidMount");
+    }
+
+    render() {
+
+        if (this.state.release)
+        {
+            // Decide with image URL to use:
+            let imgUrl;
+            if (this.state.release.images && this.state.release.images.length > 0) {
+                imgUrl = this.state.release.images[0].resource_url;
+            } else {
+                imgUrl = "release-placeholder.png";                          
+            }
+            return (
+                <div>
+                    <article>
+                        <span className="helper"></span><a href={this.state.release.uri} target="_blank"><img src={imgUrl} alt="Album cover" /></a><div className="textArea"><p className="artistName">{this.state.release.artists[0].name}</p><p className="releaseTitle">{this.state.release.title}</p></div>
+                    </article>
+                </div>
+            ); 
+        }    
+        else
+        {
+            return (
+                <div/>
+            );
+        }
+    }
 }
 
 export default Release;
