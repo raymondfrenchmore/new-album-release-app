@@ -13,7 +13,7 @@ class App extends Component {
   } 
 
   getNewReleases = (artistName) => {
-    // console.log("getNewReleases called");
+    console.log("App.getNewReleases called");
     fetch(`https://api.discogs.com/database/search?type=release&year=${new Date().getFullYear()}&artist=${artistName}&per_page=3&page=1`, {
       method: "GET",
       headers:
@@ -27,6 +27,7 @@ class App extends Component {
       return json;
      }) */
     .then(json => this.setState((prevState, props) => { 
+    console.log(json.results);
      return {
        releases: json.results
      }
@@ -34,6 +35,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("App.render called");
     return (
       <div className="App">
           <div className="container">

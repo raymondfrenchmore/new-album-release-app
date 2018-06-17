@@ -4,6 +4,7 @@ import './Results.css';
 
 class Results extends Component {
   render() {
+    console.log("Results.render is called")
     return (
         <div>
           <div className="resultsContainer"> 
@@ -11,11 +12,11 @@ class Results extends Component {
             <Release key={index} id={release.id} />
             )}
           </div>
-          <ul id="results-pager" className="pager">
+          {/* <ul id="results-pager" className="pager">
             <li><a id="previous" href="#">Previous</a></li>
             <li><span id="page-indicator"></span></li>
             <li><a id="next" href="#">Next</a></li>
-          </ul>
+          </ul> */}
       </div>
     );
   }

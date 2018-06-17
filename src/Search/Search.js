@@ -8,6 +8,7 @@ class Search extends Component {
   }
 
   searchButtonClicked = (event) => {
+    console.log("Search.searchButtonClicked called")
     event.preventDefault();
     this.props.getNewReleases(this.artistNameRef.current.value);
   }
