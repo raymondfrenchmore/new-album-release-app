@@ -10,7 +10,7 @@ class Release extends Component {
     }
 
     componentDidMount() {
-        //console.log("Entering componentDidMount");
+        console.log("Entering Release.componentDidMount");
 
         fetch(
             `https://api.discogs.com/releases/${this.props.id}?USD`, 
@@ -24,14 +24,14 @@ class Release extends Component {
         )
         .then(response => response.json())
         .then(json => this.setState(() => {
-            //console.log("Fetch succeeded");
-            //console.log(json);
+            console.log("Fetch succeeded");
+            console.log(json);
             return {
                 release: json
             };
         }))
         .catch((error) => {
-            //console.log(error);
+            console.log(error);
             this.setState((prevState) => {
                 return {
                     error: true
@@ -39,11 +39,11 @@ class Release extends Component {
             })
         });
 
-        //console.log("Exiting componentDidMount");
+        console.log("Exiting Release.componentDidMount");
     }
 
     render() {
-        console.log("Release.render called");
+        console.log("Entering Release.render");
 
         if (this.state.release)
         {

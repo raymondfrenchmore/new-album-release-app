@@ -9,7 +9,7 @@ class Results extends Component {
         <div>
           <div className="resultsContainer"> 
             {this.props.releases.map((release, index) =>
-            <Release key={index} id={release.id} />
+            <Release key={release.id} id={release.id} />
             )}
           </div>
           {/* <ul id="results-pager" className="pager">
