@@ -20,9 +20,16 @@ h1 {
     display: none;
 }
 
-.error {
-    color: #000000;
+#error-panel,
+#no-results {
+    color: yellow;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
+
+/*.error {
+    color: #000000;
+}*/
 
 .disabled {
     pointer-events: none;

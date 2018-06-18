@@ -22,16 +22,20 @@ class App extends Component {
         }
     })
     .then(response => response.json())
-/*     .then(json => {
-      console.log(json.results);
-      return json;
-     }) */
     .then(json => this.setState((prevState, props) => { 
     console.log(json.results);
      return {
-       releases: json.results
+       releases: json.results,
+       emptyReleases: json.results.length === 0
      }
-    }));
+    }))
+    .catch((error) => {
+      this.setState((prevState) => {
+        return {
+          error: "You are making requests too quickly. Please wait 60 seconds."
+        };
+      })
+    });
   }
 
   render() {
@@ -42,6 +46,8 @@ class App extends Component {
             <div className="jumbotron">
                 <h1>New Releases</h1>          
                 <Search getNewReleases={this.getNewReleases} />
+                {this.state.error ? <label id="error-panel">{this.state.error}</label> : null}
+                {this.state.emptyReleases ? <label id="no-results">No new releases for that artist.</label> : null}
                 <Results releases={this.state.releases} />
             </div>
             <div id="footer">

@@ -19,8 +19,6 @@ class Search extends Component {
         <form>
           <div className="input-group">
             <input type="text" id="input-artist-name" name="artistname" className="form-control" ref={this.artistNameRef} placeholder="Artist" />
-            <label id="error-panel">You are making requests too quickly. Please wait 60 seconds.</label>
-            <label id="no-results">No new releases for that artist.</label>
             <div className="input-group-btn">
               <button id="btn-search" className="btn btn-default" type="submit" onClick={this.searchButtonClicked}>
                 <i className="glyphicon glyphicon-search"></i>
