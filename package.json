@@ -2,9 +2,8 @@
   "name": "new-album-release-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://raymondfrenchmore.github.io/new-album-release-app",
+  "homepage": "http://raymondfrenchmore.github.io/new-album-release-app",
   "dependencies": {
-    "gh-pages": "^1.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
@@ -16,5 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
