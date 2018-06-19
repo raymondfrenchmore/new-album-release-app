@@ -10,6 +10,7 @@ h1 {
     font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
     text-transform: uppercase;
     font-size: 24pt !important;
+    letter-spacing: 1px;
 }
 
 .jumbotron {

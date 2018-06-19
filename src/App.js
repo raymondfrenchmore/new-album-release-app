@@ -26,7 +26,8 @@ class App extends Component {
     console.log(json.results);
      return {
        releases: json.results,
-       emptyReleases: json.results.length === 0
+       emptyReleases: json.results.length === 0,
+       error: ""
      }
     }))
     .catch((error) => {
