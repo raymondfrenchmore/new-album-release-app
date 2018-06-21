@@ -13,30 +13,39 @@ class App extends Component {
   } 
 
   getNewReleases = (artistName) => {
-    console.log("App.getNewReleases called");
-    fetch(`https://api.discogs.com/database/search?type=release&year=${new Date().getFullYear()}&artist=${artistName}&per_page=3&page=1`, {
-      method: "GET",
-      headers:
-        {
-          "Authorization": "Discogs token=RbvwWnsEnRskVDRIDcrTukupSbgovHnfxIbFPEgZ"
-        }
-    })
-    .then(response => response.json())
-    .then(json => this.setState((prevState, props) => { 
-    console.log(json.results);
-     return {
-       releases: json.results,
-       emptyReleases: json.results.length === 0,
-       error: ""
-     }
-    }))
-    .catch((error) => {
-      this.setState((prevState) => {
-        return {
-          error: "You are making requests too quickly. Please wait 60 seconds."
-        };
+      console.log("App.getNewReleases called");
+      const emptySearch = "Search cannot be empty";
+      if (artistName === "") {
+        console.log(emptySearch);
+        alert(emptySearch);
+        return emptySearch;
+      } 
+      else 
+      {
+      fetch(`https://api.discogs.com/database/search?type=release&year=${new Date().getFullYear()}&artist=${artistName}&per_page=3&page=1`, {
+        method: "GET",
+        headers:
+          {
+            "Authorization": "Discogs token=RbvwWnsEnRskVDRIDcrTukupSbgovHnfxIbFPEgZ"
+          }
       })
-    });
+      .then(response => response.json())
+      .then(json => this.setState((prevState, props) => { 
+      console.log(json.results);
+      return {
+        releases: json.results,
+        emptyReleases: json.results.length === 0,
+        error: ""
+      }
+      }))
+      .catch((error) => {
+        this.setState((prevState) => {
+          return {
+            error: "You are making requests too quickly. Please wait 60 seconds."
+          };
+        })
+      });
+    }
   }
 
   render() {
@@ -47,6 +56,7 @@ class App extends Component {
             <div className="jumbotron">
                 <h1>New Releases</h1>          
                 <Search getNewReleases={this.getNewReleases} />
+                <label id="error-panel">{this.emptySearch}</label>
                 {this.state.error ? <label id="error-panel">{this.state.error}</label> : null}
                 {this.state.emptyReleases ? <label id="no-results">No new releases for that artist.</label> : null}
                 <Results releases={this.state.releases} />
