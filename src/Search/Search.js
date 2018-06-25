@@ -8,7 +8,7 @@ class Search extends Component {
 	}
 
 	searchButtonClicked = (event) => {
-		console.log("Search.searchButtonClicked called")
+		// console.log("Search.searchButtonClicked called")
 		event.preventDefault();
 		
 		const artistName = this.artistNameRef.current.value;

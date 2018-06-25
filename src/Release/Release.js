@@ -10,7 +10,7 @@ class Release extends Component {
     }
 
     componentDidMount() {
-        console.log("Entering Release.componentDidMount");
+        // console.log("Entering Release.componentDidMount");
 
         fetch(
             `https://api.discogs.com/releases/${this.props.id}?USD`, 
@@ -24,14 +24,14 @@ class Release extends Component {
         )
         .then(response => response.json())
         .then(json => this.setState(() => {
-            console.log("Fetch succeeded");
-            console.log(json);
+            // console.log("Fetch succeeded");
+            // console.log(json);
             return {
                 release: json
             };
         }))
         .catch((error) => {
-            console.log(error);
+            // console.log(error);
             this.setState((prevState) => {
                 return {
                     error: true
@@ -39,15 +39,15 @@ class Release extends Component {
             })
         });
 
-        console.log("Exiting Release.componentDidMount");
+        // console.log("Exiting Release.componentDidMount");
     }
 
     render() {
-        console.log("Entering Release.render");
+        // console.log("Entering Release.render");
 
         if (this.state.release)
         {
-            console.log("  Rendering release: " + this.state.release.id);
+            // console.log("  Rendering release: " + this.state.release.id);
             // Decide with image URL to use:
             let imgUrl;
             if (this.state.release.images && this.state.release.images.length > 0) {
@@ -65,7 +65,7 @@ class Release extends Component {
         }    
         else
         {
-            console.log("  No releases to render");
+            // console.log("  No releases to render");
             return (
                 <div/>
             );

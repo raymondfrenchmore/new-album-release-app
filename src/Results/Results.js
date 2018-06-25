@@ -5,7 +5,7 @@ import './Results.css';
 
 class Results extends Component {
 	render() {
-		console.log("Results.render is called")
+		// console.log("Results.render is called")
 		return (
 			<div>
 				<div className="resultsContainer">

@@ -24,7 +24,7 @@ class App extends Component {
 		})
 		.then(response => response.json())
 		.then(json => this.setState((prevState, props) => {
-			console.log("Pagination" + JSON.stringify(json.pagination));
+			// console.log("Pagination" + JSON.stringify(json.pagination));
 			return {
 				releases: json.results,
 				pagination: json.pagination,
@@ -43,7 +43,7 @@ class App extends Component {
 	}
 
 	render() {
-		console.log("App.render called");
+		// console.log("App.render called");
 		return (
 			<div className="App">
 				<div className="container">
