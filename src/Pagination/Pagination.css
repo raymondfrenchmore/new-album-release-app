@@ -1,0 +1,30 @@
+
+button#previous,
+button#next {
+    color: #129cec;
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+button#previous:hover,
+button#next:hover {
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #eee;
+}
+
+/*#results-pager {
+    display: none;
+}*/
+
+#page-indicator {
+    color: #333;
+}
+
+.disabled {
+    pointer-events: none;
+    color: #ddd !important;
+}

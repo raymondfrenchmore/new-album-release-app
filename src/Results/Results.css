@@ -3,21 +3,3 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
-a#previous,
-a#next {
-    color: #129cec;
-}
-
-a#previous:hover,
-a#next:hover {
-    color: #337ab7;
-}
-
-/*#results-pager {
-    display: none;
-}*/
-
-#page-indicator {
-    color: #333;
-}
